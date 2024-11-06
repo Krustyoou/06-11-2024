@@ -1,0 +1,56 @@
+body {
+  color: white;
+  font-family: Arial;
+  background-color: rgba(25, 25, 25, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: block;
+}
+
+.js-result {
+  font-family: Arial;
+  font-size: 25px;
+  font-weight: bold;
+  margin: 50px 0px 0px 0px;
+}
+
+.title,
+.reset,
+.js-result,
+.js-moves,
+.js-score {
+  display: block;
+}
+
+
+.title {
+  font-size: 30px; 
+  font-weight: bold;
+}
+
+.move-icon {
+  height: 50px;
+}
+
+.move-button {
+  width: 120px;
+  height: 120px;
+  background-color: transparent;
+  border: 3px solid white;
+  border-radius: 60px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.reset {
+  background-color: white;
+  border: none;
+  font-size: 15px;
+  padding: 8px 15;
+  cursor: pointer;
+}

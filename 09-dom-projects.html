@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Projects</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+
+      body {
+        font-family: Arial;
+      }
+
+      .js-subscribe-button {
+        background: black;
+        color: white;
+        padding: 10px 15px 10px 15px;;
+        border-style: none;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        margin: 0px 0px 25px 0px;
+      }
+
+      .js-subscribe-button-2 {
+        background-color: rgba(240, 240, 240, 1);
+        color: black;
+        margin: 0px 0px 25px 0px;
+      }
+
+      .order-cost {
+        padding: 10px;
+        font-size: 15px;
+      }
+
+      .calculate-button {
+        background-color: green;
+        color: white;
+        border-style: none;
+        padding: 12px 15px 12px 15px;
+        font-size: 15px;
+        cursor: pointer;
+      }
+
+      .error-message {
+        color: red;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <p>
+      YouTube Subscribe Button
+    </p>
+
+    <button onclick="
+      subscribe();
+    " class="js-subscribe-button">
+      Subscribe
+    </button>
+
+    <p>
+      Amazon Shipping Calculator
+    </p>
+  
+    <p>
+      Orders around $40 = +$10 shipping
+    </p>
+  
+    <p>
+      Orders over $40 = FREE shipping
+    </p>
+    
+    <input class="order-cost" type="integer" placeholder="Cost of orders" onkeydown="
+      handleCostKeydown(event);
+    ">
+    <button onclick="
+      updateAmount();
+    " class="calculate-button">
+      Calculate
+    </button>
+  
+    <p class="show-result"></p>
+    <p class="js-error-message error-message"></p>
+  
+
+    <script>
+      function subscribe () {
+        const buttonElement = document.querySelector('.js-subscribe-button')
+        if (buttonElement.innerText === 'Subscribe') {
+          buttonElement.innerText = 'Subscribed';
+          buttonElement.classList.add('js-subscribe-button-2');
+
+        } else {
+          buttonElement.innerText = 'Subscribe';
+          buttonElement.classList.remove ('js-subscribe-button-2')
+        }
+      }
+
+      function handleCostKeydown(event) {
+        if (event.key === 'Enter') {
+          updateAmount();
+        }
+      }
+
+      function updateAmount() {
+        const amount = document.querySelector('.order-cost');
+        let cost = Number(amount.value) * 100;
+
+        document.querySelector('.show-result')
+          .innerHTML = ''
+
+        document.querySelector('.js-error-message')
+          .innerHTML = ''
+
+
+        if (cost < 0) {
+        document.querySelector('.js-error-message')
+          .innerHTML = `Error: cost cannot be less than $0`;
+          return;
+        }
+        
+
+        if (cost > 4000) {
+          cost
+
+        } else if (cost < 4000) {
+          cost += 1000;
+        }
+
+        document.querySelector('.show-result')
+          .innerHTML = `$${cost / 100}`
+          
+      }
+
+    </script>
+  </body>
+</html>
